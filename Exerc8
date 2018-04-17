@@ -1,0 +1,74 @@
+//8. Entrar com 20 números e imprimir a soma dos positivos e o total de
+números negativos.//
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 08</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="POST">
+		<fieldset>
+			<label>Digite 1º numero:</label>
+            <input type="number" name="num0" value="" />
+			<label>Digite 2º numero:</label>
+            <input type="number" name="num1" value="" />
+			<label>Digite 3º numero:</label>
+            <input type="number" name="num2" value="" />
+			<label>Digite 4º numero:</label>
+            <input type="number" name="num3" value="" />
+			<label>Digite 5º numero:</label>
+            <input type="number" name="num4" value="" />
+			<label>Digite 6º numero:</label>
+            <input type="number" name="num5" value="" />
+			<label>Digite 7º numero:</label>
+            <input type="number" name="num6" value="" />
+			<label>Digite 8º numero:</label>
+            <input type="number" name="num7" value="" />
+			<label>Digite 9º numero:</label>
+            <input type="number" name="num8" value="" />
+			<label>Digite 10º numero:</label>
+            <input type="number" name="num9" value="" />
+			<label>Digite 11º numero:</label>
+            <input type="number" name="num10" value="" />
+			<label>Digite 12º numero:</label>
+            <input type="number" name="num11" value="" />
+			<label>Digite 13º numero:</label>
+            <input type="number" name="num12" value="" />
+			<label>Digite 14º numero:</label>
+            <input type="number" name="num13" value="" />
+			<label>Digite 15º numero:</label>
+            <input type="number" name="num14" value="" />
+			<label>Digite 16º numero:</label>
+            <input type="number" name="num15" value="" />
+			<label>Digite 17º numero:</label>
+            <input type="number" name="num16" value="" />
+			<label>Digite 18º numero:</label>
+            <input type="number" name="num17" value="" />
+			<label>Digite 19º numero:</label>
+            <input type="number" name="num18" value="" />
+			<label>Digite 20º numero:</label>
+            <input type="number" name="num19" value="" />			
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		$total_neg = 0;
+		$total_pos = 0;
+		if (count($_POST)>0){
+			for ($i=0; $i<20; $i++){
+				$numero=$_POST["num$i"];
+				if ($numero < 0) {
+					$total_neg=$total_neg+1;
+				}else{
+					$total_pos=$total_pos+$numero;
+				}
+			}echo "<h1 align='center'>a soma dos numeros positivos é $total_pos e o total de números negativos é $total_neg</h1>";
+		}
+		?>
+	</body>
+</html>

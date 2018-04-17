@@ -1,0 +1,44 @@
+//5. Ler 3 números, os possíveis lados de um triângulo, e imprimir a
+classificação de acordo com tamanho dos lados.//
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 05</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite o lado a:</label>
+            <input type="number" name="ladoa" value="" />
+			<label>Digite o lado b:</label>
+            <input type="number" name="ladob" value="" />
+			<label>Digite o lado c:</label>
+            <input type="number" name="ladoc" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+	$ladoa = 0;
+	$ladob = 0;
+	$ladoc = 0;
+		if(isset($_POST['ladoa'])){
+			$ladoa = $_POST['ladoa'];
+			$ladob = $_POST['ladob'];
+			$ladoc = $_POST['ladoc'];
+			echo "<h1 align='center'>Valores informados:</h1>";
+			echo "<h1 align='center'>Lado A: $ladoa</h1>";		
+			echo "<h1 align='center'>Lado B: $ladob</h1>";		
+			echo "<h1 align='center'>Lado C: $ladoc</h1>";				
+			if (($ladoa+$ladob>$ladoc) && ($ladoa+$ladoc>$ladob) && ($ladoc+$ladoc>$ladoa)) {
+				echo "<h1 align='center'>Os valores representam os lados de um triângulo</h1>";
+			}else {
+				echo "<h1 align='center'>Os valores não representam os lados de um triângulo</h1>";
+			}
+		}
+	?>
+	</body>
+</html>

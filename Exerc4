@@ -1,0 +1,45 @@
+//4. Entrar com 3 números e imprimi-los em ordem decrescente (suponha
+números diferentes).//
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 04</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite o num1:</label>
+            <input type="number" name="num1" value="" />
+			<label>Digite o num2:</label>
+            <input type="number" name="num2" value="" />
+			<label>Digite o num3:</label>
+            <input type="number" name="num3" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+	$num1 = (isset($_POST['num1']) ? $_POST['num1'] : null) ;
+	$num2 = (isset($_POST['num2']) ? $_POST['num2'] : null);
+	$num3 = (isset($_POST['num3']) ? $_POST['num3'] : null);
+	if (($num1<$num2) && ($num2<$num3)) {
+		echo "<h1 align='center'>$num3, $num2 e $num1</h1>";
+	}else if (($num1<$num3) && ($num3<$num2)) {
+		echo "<h1 align='center'>$num2, $num3 e $num1</h1>";
+	}else if (($num2<$num1) && ($num1<$num3)) {
+		echo "<h1 align='center'>$num3, $num1 e $num2</h1>";
+	}else if (($num2<$num3) && ($num3<$num1)) {
+		echo "<h1 align='center'>$num1, $num3 e $num2</h1>";
+	}else if (($num3<$num1) && ($num1<$num2)) {
+		echo "<h1 align='center'>$num1, $num3 e $num2</h1>";
+	}else if (($num2<$num1) && ($num3<$num2)) {
+		echo "<h1 align='center'>$num1, $num2 e $num3</h1>";
+	}else if (($num1<$num2) && ($num3<$num2)) {
+		echo "<h1 align='center'>$num2, $num1 e $num3</h1>";
+	}
+	?>
+	</body>
+</html>

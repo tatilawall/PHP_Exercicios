@@ -1,0 +1,42 @@
+//7. A biblioteca de uma universidade deseja fazer um algoritmo que leia o
+nome do livro que será emprestado, o tipo de usuário (professor ou aluno) e
+possa imprimir um recibo conforme mostrado a seguir. Considerar que o
+professor tem 10 dias para devolver o livro o aluno somente 3 dias.//
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 07</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="POST">
+		<fieldset>
+			<label>Nome do Livro:</label>
+			<select name="livro">
+			<option value="PHP para inciantes">PHP para inciantes</option>
+			<option value="PHP avançado">PHP avançado</option>
+			</select>
+			<label>Usuário:</label>
+			<select name="usuario">
+			<option value="Professor">Professor</option>
+			<option value="Aluno">Aluno</option>
+			</select>			
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		if (count($_POST)>0){
+			$total_dias = 10;
+			$usuario = $_POST["usuario"];
+			$livro = $_POST["livro"];
+			if ($usuario == "Aluno"){
+				$total_dias = 3;
+			}
+			echo "<h1 align='center'>o livro $livro deve ser entregue em $total_dias dias</h1>";
+		}
+		?>
+	</body>
+</html>

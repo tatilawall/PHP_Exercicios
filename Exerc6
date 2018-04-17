@@ -1,0 +1,43 @@
+//6. Ler um número inteiro entre 1 e 12 e escrever o mês correspondente.
+Caso o número seja fora desse intervalo, informar que não existe mês com
+este número.//
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 06</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="post">
+		<fieldset>
+			<label>Digite um numero:</label>
+            <input type="number" name="numero" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		if(isset($_POST['numero'])){ 
+			$numero = $_POST['numero'];
+			$mes = array(
+			'1'=>'Janeiro',
+			'2'=>'Fevereiro',
+			'3'=>'Março',
+			'4'=>'Abril',
+			'5'=>'Maio',
+			'6'=>'Junho',
+			'7'=>'Julho',
+			'8'=>'Agosto',
+			'9'=>'Setembro',
+			'10'=>'Outubro',
+			'11'=>'Novembro',
+			'12'=>'Dezembro'
+			);
+		
+			echo (isset($mes[$numero]) ? $mes[$numero] : "<h1 align='center'>mes [$numero] não existe</h1>");
+		}
+		?>
+	</body>
+</html>

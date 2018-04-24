@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 10</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite uma palavra:</label>
+            <input type="text" name="palavra" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+		if(isset($_POST['palavra'])){ 
+		$palavra = $_POST['palavra'];
+			echo "<h1 align='center'>$palavra</h1>";
+			echo "<h1 align='center'>$palavra $palavra</h1>";
+			echo "<h1 align='center'>$palavra $palavra $palavra</h1>";
+			echo "<h1 align='center'>$palavra $palavra $palavra $palavra.</h1>";
+		}
+	?>
+
+	</body>
+</html>

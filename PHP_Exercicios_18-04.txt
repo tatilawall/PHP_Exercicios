@@ -1,0 +1,552 @@
+1. Construir um algoritmo que leia 2 números e efetue a adição. Caso o valor
+somado seja maior que 20, este deverá ser apresentando somando-se a ele
+mais 8; caso o valor somado seja menor ou igual a 20, este deverá ser
+apresentado subtraindo-se 5.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 01</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite o num1:</label>
+            <input type="number" name="num1" value="" />
+			<label>Digite o num2:</label>
+            <input type="number" name="num2" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+	if (count($_POST)>0){
+	$num1 = (isset($_POST['num1']) ? $_POST['num1'] : null);
+	$num2 = (isset($_POST['num2']) ? $_POST['num2'] : null);
+	$soma = $num1 + $num2;
+	$result1 = $soma + 8;
+	$result2 = $soma - 5;
+		if ($soma > 20) {
+			echo "<h1 align='center'>A soma de $num1 + $num2 é maior que 20, então ao resultado ($soma) deve-se somar 8 = $result1</h1>";
+		}else{
+			echo "<h1 align='center'>A soma de $num1 + $num2 é menor ou igual a 20, então do resultado ($soma) deve-se subtrair 5 = $result2</h1>";
+		}
+	}
+	?>
+	</body>
+</html>
+------------------------------------------------------------------------------------------------------------------
+
+2. Entrar com um número e informar se ele é divisível por 10, por 5, por 2 ou
+se não é divisível por nenhum destes.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 02</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite um numero:</label>
+            <input type="text" name="numero" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+		if(isset($_POST['numero'])){ 
+		$numero = $_POST['numero'];
+		if ($numero % 10 == 0)
+			echo "<h1 align='center'>$numero é divisivel por 10!</h1>";
+		else if ($numero % 5 == 0)
+			echo "<h1 align='center'>$numero é divisivel por 5!</h1>";
+		else if ($numero % 2 == 0)
+			echo "<h1 align='center'>$numero é divisivel por 2!</h1>";			
+		else
+			echo "<h1 align='center'>$numero não é divisivel por 10, nem por 5, nem por 2!";
+		}
+	?>
+
+	</body>
+</html>
+------------------------------------------------------------------------------------------------------------------
+
+3. Entrar com nome, sexo e idade de uma pessoa. Se a pessoa for do sexo
+feminino e tiver menos que 25 anos, imprimir nome e a a mensagem:
+ACEITA. Caso contrário, imprimir nome e a mensagem: NÃO ACEITA
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 03</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite seu nome:</label>
+            <input type="text" name="nome" value="" />
+			<label>Digite seu sexo:</label>
+			<select name="sexo">
+			<option value="F">feminino</option>
+			<option value="M">masculino</option>
+			</select>
+            <label>Digite sua idade:</label>
+            <input type="number" name="idade" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+		if (isset($_POST['nome'])) {
+		$nome = $_POST['nome'];
+		$sexo = $_POST['sexo'];
+		$idade = $_POST['idade'];
+			if (($sexo == "F") AND ($idade < 25)) {
+				echo "<h1 align='center'>$nome ACEITA</h1>";
+			}else{
+				echo "<h1 align='center'>$nome NÃO ACEITA</h1>";
+			}
+		}
+	?>
+	</body>
+</html>
+----------------------------------------------------------------------------------------------------------------
+
+4. Entrar com 3 números e imprimi-los em ordem decrescente (suponha
+números diferentes).
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 04</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite o num1:</label>
+            <input type="number" name="num1" value="" />
+			<label>Digite o num2:</label>
+            <input type="number" name="num2" value="" />
+			<label>Digite o num3:</label>
+            <input type="number" name="num3" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+	$num1 = (isset($_POST['num1']) ? $_POST['num1'] : null) ;
+	$num2 = (isset($_POST['num2']) ? $_POST['num2'] : null);
+	$num3 = (isset($_POST['num3']) ? $_POST['num3'] : null);
+	if (($num1<$num2) && ($num2<$num3)) {
+		echo "<h1 align='center'>$num3, $num2 e $num1</h1>";
+	}else if (($num1<$num3) && ($num3<$num2)) {
+		echo "<h1 align='center'>$num2, $num3 e $num1</h1>";
+	}else if (($num2<$num1) && ($num1<$num3)) {
+		echo "<h1 align='center'>$num3, $num1 e $num2</h1>";
+	}else if (($num2<$num3) && ($num3<$num1)) {
+		echo "<h1 align='center'>$num1, $num3 e $num2</h1>";
+	}else if (($num3<$num1) && ($num1<$num2)) {
+		echo "<h1 align='center'>$num1, $num3 e $num2</h1>";
+	}else if (($num2<$num1) && ($num3<$num2)) {
+		echo "<h1 align='center'>$num1, $num2 e $num3</h1>";
+	}else if (($num1<$num2) && ($num3<$num2)) {
+		echo "<h1 align='center'>$num2, $num1 e $num3</h1>";
+	}
+	?>
+	</body>
+</html>
+----------------------------------------------------------------------------------------------------------------
+
+5. Ler 3 números, os possíveis lados de um triângulo, e imprimir a
+classificação de acordo com tamanho dos lados.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 05</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite o lado a:</label>
+            <input type="number" name="ladoa" value="" />
+			<label>Digite o lado b:</label>
+            <input type="number" name="ladob" value="" />
+			<label>Digite o lado c:</label>
+            <input type="number" name="ladoc" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+	$ladoa = 0;
+	$ladob = 0;
+	$ladoc = 0;
+		if(isset($_POST['ladoa'])){
+			$ladoa = $_POST['ladoa'];
+			$ladob = $_POST['ladob'];
+			$ladoc = $_POST['ladoc'];
+			echo "<h1 align='center'>Valores informados:</h1>";
+			echo "<h1 align='center'>Lado A: $ladoa</h1>";		
+			echo "<h1 align='center'>Lado B: $ladob</h1>";		
+			echo "<h1 align='center'>Lado C: $ladoc</h1>";				
+			if (($ladoa+$ladob>$ladoc) && ($ladoa+$ladoc>$ladob) && ($ladoc+$ladoc>$ladoa)) {
+				echo "<h1 align='center'>Os valores representam os lados de um triângulo</h1>";
+			}else {
+				echo "<h1 align='center'>Os valores não representam os lados de um triângulo</h1>";
+			}
+		}
+	?>
+	</body>
+</html>
+----------------------------------------------------------------------------------------------------------------
+
+6. Ler um número inteiro entre 1 e 12 e escrever o mês correspondente.
+Caso o número seja fora desse intervalo, informar que não existe mês com
+este número.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 06</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="post">
+		<fieldset>
+			<label>Digite um numero:</label>
+            <input type="number" name="numero" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		if(isset($_POST['numero'])){ 
+			$numero = $_POST['numero'];
+			$mes = array(
+			'1'=>'Janeiro',
+			'2'=>'Fevereiro',
+			'3'=>'Março',
+			'4'=>'Abril',
+			'5'=>'Maio',
+			'6'=>'Junho',
+			'7'=>'Julho',
+			'8'=>'Agosto',
+			'9'=>'Setembro',
+			'10'=>'Outubro',
+			'11'=>'Novembro',
+			'12'=>'Dezembro'
+			);
+		
+			echo (isset($mes[$numero]) ? $mes[$numero] : "<h1 align='center'>mes [$numero] não existe</h1>");
+		}
+		?>
+	</body>
+</html>
+---------------------------------------------------------------------------------------------------------------
+
+7. A biblioteca de uma universidade deseja fazer um algoritmo que leia o
+nome do livro que será emprestado, o tipo de usuário (professor ou aluno) e
+possa imprimir um recibo conforme mostrado a seguir. Considerar que o
+professor tem 10 dias para devolver o livro o aluno somente 3 dias.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 07</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="POST">
+		<fieldset>
+			<label>Nome do Livro:</label>
+			<select name="livro">
+			<option value="PHP para inciantes">PHP para inciantes</option>
+			<option value="PHP avançado">PHP avançado</option>
+			</select>
+			<label>Usuário:</label>
+			<select name="usuario">
+			<option value="Professor">Professor</option>
+			<option value="Aluno">Aluno</option>
+			</select>			
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		if (count($_POST)>0){
+			$total_dias = 10;
+			$usuario = $_POST["usuario"];
+			$livro = $_POST["livro"];
+			if ($usuario == "Aluno"){
+				$total_dias = 3;
+			}
+			echo "<h1 align='center'>o livro $livro deve ser entregue em $total_dias dias</h1>";
+		}
+		?>
+	</body>
+</html>
+-------------------------------------------------------------------------------------------------------------
+
+8. Entrar com 20 números e imprimir a soma dos positivos e o total de
+números negativos.
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 08</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="POST">
+		<fieldset>
+			<label>Digite 1º numero:</label>
+            <input type="number" name="num0" value="" />
+			<label>Digite 2º numero:</label>
+            <input type="number" name="num1" value="" />
+			<label>Digite 3º numero:</label>
+            <input type="number" name="num2" value="" />
+			<label>Digite 4º numero:</label>
+            <input type="number" name="num3" value="" />
+			<label>Digite 5º numero:</label>
+            <input type="number" name="num4" value="" />
+			<label>Digite 6º numero:</label>
+            <input type="number" name="num5" value="" />
+			<label>Digite 7º numero:</label>
+            <input type="number" name="num6" value="" />
+			<label>Digite 8º numero:</label>
+            <input type="number" name="num7" value="" />
+			<label>Digite 9º numero:</label>
+            <input type="number" name="num8" value="" />
+			<label>Digite 10º numero:</label>
+            <input type="number" name="num9" value="" />
+			<label>Digite 11º numero:</label>
+            <input type="number" name="num10" value="" />
+			<label>Digite 12º numero:</label>
+            <input type="number" name="num11" value="" />
+			<label>Digite 13º numero:</label>
+            <input type="number" name="num12" value="" />
+			<label>Digite 14º numero:</label>
+            <input type="number" name="num13" value="" />
+			<label>Digite 15º numero:</label>
+            <input type="number" name="num14" value="" />
+			<label>Digite 16º numero:</label>
+            <input type="number" name="num15" value="" />
+			<label>Digite 17º numero:</label>
+            <input type="number" name="num16" value="" />
+			<label>Digite 18º numero:</label>
+            <input type="number" name="num17" value="" />
+			<label>Digite 19º numero:</label>
+            <input type="number" name="num18" value="" />
+			<label>Digite 20º numero:</label>
+            <input type="number" name="num19" value="" />			
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		$total_neg = 0;
+		$total_pos = 0;
+		if (count($_POST)>0){
+			for ($i=0; $i<20; $i++){
+				$numero=$_POST["num$i"];
+				if ($numero < 0) {
+					$total_neg=$total_neg+1;
+				}else{
+					$total_pos=$total_pos+$numero;
+				}
+			}echo "<h1 align='center'>a soma dos numeros positivos é $total_pos e o total de números negativos é $total_neg</h1>";
+		}
+		?>
+	</body>
+</html>
+------------------------------------------------------------------------------------------------------------------
+9. Criar um algoritmo que imprima a tabuada de um número qualquer (pode
+ser maior do que 10).
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 09</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="post">
+		<fieldset>
+			<label>Digite um numero:</label>
+            <input type="number" name="numero" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		if(isset($_POST['numero'])){ 
+		$numero = $_POST['numero'];
+		$i = 0;
+		for($i = 0; $i <= 10; $i++){
+			echo "<h1 align='center'>$numero * $i = ";
+			echo $numero*$i;
+			echo "<br></h1>";
+		}
+		}
+		?>
+	</body>
+</html>
+----------------------------------------------------------------------------------------------------------------
+
+10. Criar um algoritmo que entre com uma palavra e imprima conforme o
+exemplo:
+Palavra: sonho
+SONHO
+SONHO SONHO
+SONHO SONHO SONHO
+SONHO SONHO SONHO SONHO.
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 10</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite uma palavra:</label>
+            <input type="text" name="palavra" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+		if(isset($_POST['palavra'])){ 
+		$palavra = $_POST['palavra'];
+			echo "<h1 align='center'>$palavra</h1>";
+			echo "<h1 align='center'>$palavra $palavra</h1>";
+			echo "<h1 align='center'>$palavra $palavra $palavra</h1>";
+			echo "<h1 align='center'>$palavra $palavra $palavra $palavra.</h1>";
+		}
+	?>
+
+	</body>
+</html>
+------------------------------------------------------------------------------------------------------------------
+
+13. Na usina de Angra dos Reis, os técnicos analisam a perda de massa de
+um material radioativo. Sabendo-se que este perde 25% de sua massa a
+cada 30 segundos, criar um algoritmo que imprima o tempo necessário para
+que a massa desse material seja menor que 0.10 (10%).
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 13</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+	<form action="#" method="post">
+		<fieldset>
+			<label>Digite a massa do material:</label>
+            <input type="text" name="massa" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+    </form>
+	<?php
+		if(isset($_POST['massa'])){ 
+		$massa = $_POST['massa'];
+		$tempo = 0;
+		while ($massa > 0.10){
+			$massa = ($massa*0.75);
+			$tempo++;
+		}
+		$tempo = $tempo*30;	
+			echo "<h1 align='center'>$tempo segundos</h1>";
+		}
+	?>
+
+	</body>
+</html>
+-----------------------------------------------------------------------------------------------------------------
+
+14. Armazenar 15 números inteiros em um vetor e imprimir uma mensagem
+contendo o número e uma das mensagens: par ou ímpar.
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercicio PHP 14</title>
+		<style>
+			form { width: 200px; height: auto; margin: 0 auto; }
+			label, input { width: 100%; height: auto; display: block; float:left; margin: 5px 0; }
+		</style>
+	</head>
+	<body>
+		<form action="#" method="POST">
+		<fieldset>
+			<label>Digite 1º numero:</label>
+            <input type="number" name="num1" value="" />
+			<label>Digite 2º numero:</label>
+            <input type="number" name="num2" value="" />
+			<label>Digite 3º numero:</label>
+            <input type="number" name="num3" value="" />
+			<label>Digite 4º numero:</label>
+            <input type="number" name="num4" value="" />
+			<label>Digite 5º numero:</label>
+            <input type="number" name="num5" value="" />
+			<label>Digite 6º numero:</label>
+            <input type="number" name="num6" value="" />
+			<label>Digite 7º numero:</label>
+            <input type="number" name="num7" value="" />
+			<label>Digite 8º numero:</label>
+            <input type="number" name="num8" value="" />
+			<label>Digite 9º numero:</label>
+            <input type="number" name="num9" value="" />
+			<label>Digite 10º numero:</label>
+            <input type="number" name="num10" value="" />
+			<label>Digite 11º numero:</label>
+            <input type="number" name="num11" value="" />
+			<label>Digite 12º numero:</label>
+            <input type="number" name="num12" value="" />
+			<label>Digite 13º numero:</label>
+            <input type="number" name="num13" value="" />
+			<label>Digite 14º numero:</label>
+            <input type="number" name="num14" value="" />
+			<label>Digite 15º numero:</label>
+            <input type="number" name="num15" value="" />
+			<input type="submit" value="Enviar" />
+        </fieldset>
+		</form>
+		<?php
+		$num;
+		if (count($_POST)>0){
+			for ($i=1; $i<16; $i++){
+				$num=$_POST["num$i"];
+				if ($num % 2 == 0) {
+					echo "<h1 align='center'>$num é par! </h1>";
+				}else{
+					echo "<h1 align='center'>$num é ímpar! </h1>";
+				}
+			}
+		}
+		?>
+	</body>
+</html>
